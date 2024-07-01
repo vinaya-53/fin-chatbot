@@ -5,7 +5,7 @@ from mangum import Mangum
 from chatbot import chatbot_response
 
 app = FastAPI()
-origins = ["*"]
+origins = ["https://finance-bot-lyart.vercel.app"]
 
 app.add_middleware(
     CORSMiddleware,
