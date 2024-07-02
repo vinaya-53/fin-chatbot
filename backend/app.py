@@ -5,7 +5,7 @@ from mangum import Mangum
 from chatbot import chatbot_response
 
 app = FastAPI()
-origins = ["*"]
+origins = ["https://finance-bot-lyart.vercel.app"]
 
 app.add_middleware(
     CORSMiddleware,
@@ -15,7 +15,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.post('/api/chat')
+@app.post('/chat')
 async def chat(request: Request):
     try:
         data = await request.json()
