@@ -5,7 +5,6 @@ import './chatbot.css'; // Import the CSS file
 const axiosConfig = {
     headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'ca08d70067243e150c4cd95efe5ff884510a8b512c47bd950a6606350f4b03ad', // Include the secret token here
     }
 };
 
