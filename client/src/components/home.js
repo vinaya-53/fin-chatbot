@@ -25,7 +25,7 @@ function HomePage() {
         const userMessage = { text: query, sender: 'user' };
 
         try {
-            const response = await axios.post('https://finance-bot-lyart.vercel.app/chat', {
+            const response = await axios.post('https://fin-chatbot.vercel.app/chat', {
                 message: query,
             }, axiosConfig);
             const botMessage = { text: response.data.response, sender: 'bot' };
