@@ -6,14 +6,14 @@ from chatbot import chatbot_response
 
 app = FastAPI()
 origins = ["https://finance-chatbot-sigma.vercel.app",
-    "https://finance-chatbot-brkhq2nsf-neptos-projects-a4a06739.vercel.app"]
+           "https://fin-chatbot.vercel.app"]
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["GET", "POST", "PUT", "DELETE"],  # Specific methods
+    allow_headers=["Authorization", "Content-Type"]
 )
 
 @app.post('/chat')
