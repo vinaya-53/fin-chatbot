@@ -5,15 +5,14 @@ from mangum import Mangum
 from chatbot import chatbot_response
 
 app = FastAPI()
-origins = ["https://finance-chatbot-sigma.vercel.app","https://finance-chatbot-sigma.vercel.app/home",
-           "https://fin-chatbot.vercel.app"]
+origins = ["*"]
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
-    allow_credentials=True,
-    allow_methods=["GET", "POST", "PUT", "DELETE"],  # Specific methods
-    allow_headers=["Authorization", "Content-Type"]
+    allow_credentials=False,
+    allow_methods=["*"],  # Specific methods
+    allow_headers=["*"]
 )
 
 @app.post('/chat')

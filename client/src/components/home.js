@@ -24,13 +24,13 @@ function HomePage() {
         if (query.trim() === '') return; // Ignore empty input
 
         const userMessage = { text: query, sender: 'user' };
-
+        console.log('User Message:', userMessage);
         try {
             const response = await axios.post('https://fin-chatbot.vercel.app/chat', {
                 message: query,
             }, axiosConfig);
             const botMessage = { text: response.data.response, sender: 'bot' };
-
+            console.log('API Response:', response.data);
             // Update state with both messages at once
             setMessages(prevMessages => [...prevMessages, userMessage, botMessage]);
             setInput('');
