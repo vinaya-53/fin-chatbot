@@ -1,7 +1,6 @@
 fastapi
 uvicorn
 spacy
-en-core-web-sm
 google-cloud-dialogflow
 proto-plus
 requests
