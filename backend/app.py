@@ -29,6 +29,13 @@ async def chat(request: Request):
         return JSONResponse(content=response_data)
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Internal Server Error: {str(e)}")
+@app.options("/{path:path}")
+async def preflight_handler(path: str, request: Request):
+    return JSONResponse(headers={
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "POST, GET, OPTIONS",
+        "Access-Control-Allow-Headers": "Authorization, Content-Type"
+    })
 
 
 handler = Mangum(app)
