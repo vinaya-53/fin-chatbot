@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "postinstall": "python -m spacy download en_core_web_sm",
+    "build": "pip install --disable-pip-version-check --target . --upgrade -r /vercel/path0/backend/requirements.txt && python -m spacy download en-core-web-sm",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start":"nodemon index.js"
   },
