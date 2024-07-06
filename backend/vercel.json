@@ -6,19 +6,6 @@
       "use": "@vercel/python"
     }
   ],
- "functions": {
-    "api/**/*.py": {
-      "includeFiles": "api/**",
-      "excludeFiles": [
-        "tests/**",
-        "docs/**",
-        ".git/**",
-        "venv/**",
-        "requirements.txt",
-        "package/"
-      ]
-    }
-  },
   "routes": [
     { 
       "src": "/(.*)", 
