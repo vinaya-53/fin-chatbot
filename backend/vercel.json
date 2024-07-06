@@ -7,11 +7,17 @@
       "config": { "maxLambdaSize": "15mb" }
     }
   ],
+  "functions": {
+    "api/**/*.py": {
+      "includeFiles": "api/**",
+      "excludeFiles": "test/**"
+    }
+  },
   "routes": [
-    { "src": "/(.*)", "dest": "/app.py" }
-  ],  "framework": "vercel",
-  "dependencies": {
-    "requirements.txt": ["pip", "install", "-r", "requirements.txt"] 
-  }
+    { 
+      "src": "/(.*)", 
+      "dest": "/app.py" }
+  ]
+ 
   }
   

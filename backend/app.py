@@ -10,7 +10,7 @@ origins = ["https://finance-chatbot-sigma.vercel.app"]
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
-    allow_credentials=False,
+    allow_credentials=True,
     allow_methods=["*"],  # Specific methods
     allow_headers=["*"]
 )
