@@ -3,7 +3,7 @@ const cors = require('cors');
 const app = express();
 
 const corsOptions = {
-    origin: ['*'],
+    origin: ['https://finance-chatbot-sigma.vercel.app'],
     optionsSuccessStatus: 200
 };
 
