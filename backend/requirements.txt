@@ -1,4 +1,5 @@
 fastapi
-spacy
+spacy==3.5.2
+thinc==8.1.0
 en-core-web-sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.1.0/en_core_web_sm-3.1.0.tar.gz
 mangum
