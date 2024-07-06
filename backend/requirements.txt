@@ -1,3 +1,6 @@
 fastapi
+uvicorn
 spacy
+google-cloud-dialogflow
+requests
 mangum
