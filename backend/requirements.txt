@@ -1,4 +1,2 @@
 fastapi
-spacy
-en-core-web-sm 
 mangum
