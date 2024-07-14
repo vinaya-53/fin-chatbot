@@ -1,45 +1,14 @@
 import spacy
+from pathlib import Path
 import os
-from botocore.vendored import requests
-
-def load_spacy_model():
-    model_path = "/var/task/en_core_web_md"  # Adjusted for Vercel's environment
-    try:
-        nlp = spacy.load(model_path)
-    except OSError:
-        # Download the model if not available
-        try:
-            spacy.cli.download("en_core_web_md")
-            nlp = spacy.load(model_path)
-        except Exception as e:
-            print(f"Error loading SpaCy model: {e}")
-            nlp = None
-    return nlp
-
-def handler(event, context):
-    nlp = load_spacy_model()
-    if not nlp:
-        return {
-            "statusCode": 500,
-            "body": "Error loading SpaCy model"
-        }
+import requests
+nlp = spacy.load('en_core_web_sm')
     
-    # Use nlp object for processing
-    return {
-        "statusCode": 200,
-        "body": "SpaCy model loaded successfully"
-    }
 import google.cloud.dialogflow_v2  as dialogflow
 from proto.marshal.collections import MapComposite
 from google.protobuf import struct_pb2
-import requests
-import json
 import math
 import re
-import subprocess
-from pathlib import Path
-
-
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "C:\\Users\\vinuu\\fi-chatbot-rdcm-e44426a9c278.json"
 
 ALPHA_VANTAGE_API_KEY = "5QJVB1470YSOAI6Q"

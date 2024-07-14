@@ -3,14 +3,12 @@ from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from mangum import Mangum
 from chatbot import chatbot_response
-
-origins = ["https://finance-chatbot-sigma.vercel.app"]    
-    
+app = FastAPI() 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=["*"],
     allow_credentials=True,
-    allow_methods=["*"],  # Specific methods https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.7.1/en_core_web_sm-3.7.1.tar.gz#en_core_web_sm
+    allow_methods=["*"],
     allow_headers=["*"]
 )
 
@@ -28,13 +26,6 @@ async def chat(request: Request):
         return JSONResponse(content=response_data)
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Internal Server Error: {str(e)}")
-@app.options("/{path:path}")
-async def preflight_handler(path: str, request: Request):
-    return JSONResponse(headers={
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "POST, GET, OPTIONS",
-        "Access-Control-Allow-Headers": "Authorization, Content-Type"
-    })
 
 
 handler = Mangum(app)
