@@ -1,14 +1,11 @@
 import spacy
-from pathlib import Path
 import os
 import requests
-nlp = spacy.load('en_core_web_sm')
-    
 import google.cloud.dialogflow_v2  as dialogflow
 from proto.marshal.collections import MapComposite
-from google.protobuf import struct_pb2
 import math
 import re
+nlp = spacy.load("en_core_web_sm")
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "C:\\Users\\vinuu\\fi-chatbot-rdcm-e44426a9c278.json"
 
 ALPHA_VANTAGE_API_KEY = "5QJVB1470YSOAI6Q"

@@ -26,7 +26,7 @@ function HomePage() {
         const userMessage = { text: query, sender: 'user' };
         console.log('User Message:', userMessage);
         try {
-            const response = await axios.post('http://nepto.pythonanywhere.com/chat', {
+            const response = await axios.post('http://localhost:8000/chat', {
                 message: query,
             }, axiosConfig);
             const botMessage = { text: response.data.response, sender: 'bot' };
